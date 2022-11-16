@@ -1,6 +1,6 @@
 package com.elster.tacos.data;
 
-import com.elster.tacos.Ingredient;
+import com.elster.tacos.model.Ingredient;
 
 public interface IngredientRepository {
     Iterable<Ingredient> findAll();

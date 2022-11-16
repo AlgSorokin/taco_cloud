@@ -1,4 +1,4 @@
-package com.elster.tacos;
+package com.elster.tacos.model;
 
 import lombok.Data;
 import javax.validation.constraints.NotNull;

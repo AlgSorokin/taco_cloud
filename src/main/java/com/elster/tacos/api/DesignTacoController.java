@@ -1,6 +1,8 @@
-package com.elster.tacos;
+package com.elster.tacos.api;
 
-import com.elster.tacos.Ingredient.Type;
+import com.elster.tacos.model.Ingredient;
+import com.elster.tacos.model.Ingredient.Type;
+import com.elster.tacos.model.Taco;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
