@@ -1,6 +1,6 @@
 package com.elster.tacos.data;
 
-import com.elster.tacos.Ingredient;
+import com.elster.tacos.model.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 @Repository
 public class JdbcIngredientRepository
         implements IngredientRepository {
-    private JdbcTemplate jdbc;
+    private final JdbcTemplate jdbc;
 
     @Autowired
     public JdbcIngredientRepository(JdbcTemplate jdbc) {
@@ -50,7 +50,12 @@ public class JdbcIngredientRepository
 
     @Override
     public Ingredient save(Ingredient ingredient) {
-        return null;
+        jdbc.update(
+                "insert into Ingredient (id, name, type) values (?, ?, ?)",
+                ingredient.getId(),
+                ingredient.getName(),
+                ingredient.getType().toString());
+        return ingredient;
     }
 
     private Ingredient mapRowToIngredient(ResultSet rs, int rowNum)
